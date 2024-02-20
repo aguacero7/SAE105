@@ -4,6 +4,8 @@ from CTkMessagebox import CTkMessagebox
 import pandas as pd
 import zipfile
 from CTkListbox import *
+from niveaux import nv0,nv1,nv2,nv3,nv4,nv5
+
 
 #fonction qui vérifie que le fichier est valide
 def verif_file(path):
@@ -38,7 +40,7 @@ def open_zip():
         top = ctk.CTkToplevel(app)
         top.title("Fichiers dans le zip")
         
-        # Créer une listbox pour afficher la liste des fichiers CSV
+        # Creer une listbox pour afficher la liste des fichiers CSV
         listbox = CTkListbox(top)
         listbox.pack(padx=20, pady=20, fill=ctk.BOTH, expand=True)
         
@@ -71,10 +73,17 @@ tabview.add("Accueil")  # l'onglet accueil
 for i in range(0,6):     #les onglets niveaux
     tabview.add("Niveau"+str(i))
 
-button_1 = ctk.CTkButton(tabview.tab("Accueil"),text="Choisissez un fichier",command=open_zip)
-button_1.grid(row=0,column=0,pady=(30,10))
-accueil_entry = ctk.CTkEntry(tabview.tab("Accueil"), width=500)
-accueil_entry.grid(row=1,column=0,pady=(30,10))
+button_1 = ctk.CTkButton(tabview.tab("Accueil"),text="Choisissez un ZIP",command=open_zip)
 
-app.grid_columnconfigure(0,weight=1,)
+button_2 = ctk.CTkButton(tabview.tab("Accueil"),text="Choisissez un fichier",command=select_file)
+
+accueil_entry = ctk.CTkEntry(tabview.tab("Accueil"), width=500)
+
+
+button_1.grid(row=0,column=1,pady=(30,10))
+
+button_2.grid(row=0,column=3,pady=(30,10))
+
+accueil_entry.grid(row=1,column=1,columnspan=3,pady=(30,10))
+app.grid_columnconfigure(0,weight=1)
 app.mainloop()
