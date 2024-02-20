@@ -1,8 +1,8 @@
 # SAE105 Lilian GAUDIN Noé QUENOT
 
 
-* * INSTALLATION * *
-executer install.py
+* INSTALLATION 
+* *executer install.py
 
 
 # Executer interface.py !
