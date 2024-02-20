@@ -4,25 +4,17 @@ from CTkMessagebox import CTkMessagebox
 import pandas as pd
 import zipfile
 from CTkListbox import *
-from niveaux import nv0,nv1,nv2,nv3,nv4,nv5
+#from niveaux import nv0,nv1,nv2,nv3,nv4,nv5
 
 
-#fonction qui vérifie que le fichier est valide
-def verif_file(path):
-    if path[-4:]==".csv":
-        return True
-    else:
-
-        return False
 
 def select_file():                              #fonction pr choisir un fichier
     file_path = filedialog.askopenfilename()    #on demande à l'utilisateur de choisir un fichier et on stocke le chemin ds une variabke
-    if(verif_file(file_path)==False):
-        CTkMessagebox(title="Erreur", message="Erreur d'extension, pensez à choisir un fichier .csv", icon="cancel")   #message d'alerte si le fichier n'est pas csv
-    else:
+    if(file_path.endswith(".csv")):
         accueil_entry.delete(0, ctk.END)            #on supprime le texte quil ya dans le champ en dessous
         accueil_entry.insert(0, file_path)          #on le remplace par le chemin
-
+    else:
+        CTkMessagebox(title="Erreur", message="Erreur d'extension, pensez à choisir un fichier .csv", icon="cancel")   #message d'alerte si le fichier n'est pas csv
 
 
 def open_zip():
@@ -47,13 +39,17 @@ def open_zip():
         # Ajouter les fichiers CSV à la listbox
         for file in csv_files:
             listbox.insert(ctk.END, file)
-        
+
         # Fonction pour sélectionner un fichier CSV et l'ajouter dans accueil_entry
         def select_csv(event):
             selected_item = listbox.curselection()
             selected_file = listbox.get(selected_item)
+
             accueil_entry.delete(0, ctk.END)
-            accueil_entry.insert(0, selected_file)
+            path=zip_path+"/"+selected_file         #ajouter le chemin du zip et le fichier ensemble
+            accueil_entry.insert(0, path)
+
+
             top.destroy()
         
         # Ajouter un événement pour sélectionner un fichier CSV
@@ -63,6 +59,11 @@ def open_zip():
         top.mainloop()
     else:
         CTkMessagebox(title="Erreur", message="Erreur d'extension, pensez à choisir un fichier .zip", icon="cancel")
+   
+
+
+    
+
 
 app=ctk.CTk()                                   #constructeur
 tabview = ctk.CTkTabview(app)                   #intialisation du system d'onglet
