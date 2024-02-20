@@ -1,7 +1,7 @@
 customtkinter
 CTkMessagebox
 pandas
-tk
+tkinter
 zipfile
 matplotlib
 CtkListbox
