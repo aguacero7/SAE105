@@ -1,7 +1,12 @@
-# SAE105
-sae 105 avec nono
+# SAE105 Lilian GAUDIN Noé QUENOT
 
-noe le gros connard
+
+* * INSTALLATION * *
+executer install.py
+
+
+# Executer interface.py !
+
 
 i = taille_zizi_lilian
 do(i++)
