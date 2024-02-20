@@ -4,7 +4,7 @@ from CTkMessagebox import CTkMessagebox
 import pandas as pd
 import zipfile
 from CTkListbox import *
-from niveaux import nv0,nv1,nv2,nv3,nv4,nv5
+#from niveaux import nv0,nv1,nv2,nv3,nv4,nv5
 
 
 #fonction qui vérifie que le fichier est valide
