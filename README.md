@@ -1,11 +1,9 @@
 # SAE105 Lilian GAUDIN Noé QUENOT
 
 
-* INSTALLATION 
-* *executer install.py
-
-
-# Executer interface.py !
+#### Installation
+* Executer install.py, les dépendances s'installeront toutes seules
+* Executer interface.py, et c'est tout !!!!
 
 
 i = taille_zizi_lilian
