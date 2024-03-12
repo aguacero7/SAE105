@@ -1,7 +1,11 @@
+CtkTable
+CtkTable
 customtkinter
 CTkMessagebox
 pandas
-tkinter
-zipfile
+tk
+chardet
+zipfile36
 matplotlib
 CtkListbox
+
