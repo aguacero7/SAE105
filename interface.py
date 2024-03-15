@@ -12,7 +12,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 def main():
     dataf = None
-    def level5(df, ax,frame):
+    def level5(df, ax,frame):   # marche pô
         df_grouped = df.groupby('MAGASIN')['TYPEMVT'].value_counts(normalize=True)
         df_grouped = df_grouped.mul(100).round(1)
         df_grouped.unstack().plot(kind='bar', stacked=True, ax=ax)
@@ -24,10 +24,10 @@ def main():
         années = ["2021","2022","2023"]
         value = [0.0,0.0,0.0]
         for i in df.itertuples():
-            if i.DATEMVT[-4:] != '2020':
+            if i.DATEMVT[-4:] != '2020':            #recup des index
                 r = années.index(i.DATEMVT[-4:])
                 h = i.VALHT
-                if "," in h:
+                if "," in h:  #mettre un point a la place de la virgule
                     z = h.split(",")
                     if len(z) == 2:
                         h = z[0] + "." + z[1]
@@ -36,19 +36,19 @@ def main():
                 value[r] += float(h)
         print(value)
         fig, ax = plt.subplots()  # Creer la figure
-        ax.pie(value, labels=années, autopct="%1.1f%%")
+        ax.pie(value, labels=années, autopct="%1.1f%%") 
         ax.set_title("Proportion de valeurs par année")
 
         
-        canvas = FigureCanvasTkAgg(fig, master=frame)  
+        canvas = FigureCanvasTkAgg(fig, master=frame)   #mettre dans un canva
         canvas.draw()                                  
         canvas.get_tk_widget().grid(row=0, column=0, columnspan=3, padx=10, pady=10, sticky="nsew")
 
-        frame.grid_columnconfigure(0, weight=1)
+        frame.grid_columnconfigure(0, weight=1)        #le mettre dans la grille
         frame.grid_rowconfigure(0, weight=1)
 
     def level3(df,frame):
-        mois = [["janvier","01"],["fevrier","02"],["mars","03"],["avril","04"],["mai","05"],["juin","06"],["juillet","07"],["aout","08"],["septembre","09"],["octobre","10"],["novembre","11"],["decembre","12"]]
+        
         mois = []
         nbmvt = []
         for x in df.itertuples():
