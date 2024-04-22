@@ -1,4 +1,6 @@
-# SAE105 Lilian GAUDIN Noé QUENOT
+# SAE105 Traiter des données
+
+Fait par les rois du monde 
 
 #### Installation
 * Executer install.py, les dépendances s'installeront toutes seules
